@@ -1,0 +1,36 @@
+#! /bin/sh
+#
+# LED ON/OFF Operation
+#
+
+GPIOD=/sys/class/gpio
+
+if [ $# -ne 2 ]; then
+  echo You need arguments
+  exit
+fi
+
+iod=0
+case $1 in
+    'PC4') iod=68;;
+esac
+if [ $iod -eq 0 ]; then
+    echo No Operation
+    exit
+fi
+v=0
+case $2 in
+    'on'|'ON'|'1')   v=1;;
+    'off'|'OFF'|'0') v=0;;
+esac
+
+LEDD=${GPIOD}/gpio${iod}
+
+if [ ! -d $LEDD ]; then
+    echo $iod > ${GPIOD}/export
+fi
+
+echo out > ${LEDD}/direction
+echo $v > ${LEDD}/value
+echo $iod > ${GPIOD}/unexport
+exit 0
