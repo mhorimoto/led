@@ -10,11 +10,37 @@ if [ $# -ne 2 ]; then
   exit
 fi
 
-iod=0
+iod=9999
 case $1 in
-    'PC4') iod=68;;
+    'pa0'|'PA0') iod=0;;
+    'pa1'|'PA1') iod=1;;
+    'pa2'|'PA2') iod=2;;
+    'pa3'|'PA3') iod=3;;
+    'pa6'|'PA6') iod=6;;
+    'pa7'|'PA7') iod=7;;
+    'pa8'|'PA8') iod=8;;
+    'pa9'|'PA9') iod=9;;
+    'pa10'|'PA10') iod=10;;
+    'pa11'|'PA11') iod=11;;
+    'pa12'|'PA12') iod=12;;
+    'pa13'|'PA13') iod=13;;
+    'pa14'|'PA14') iod=14;;
+    'pa18'|'PA18') iod=18;;
+    'pa19'|'PA19') iod=19;;
+    'pa20'|'PA20') iod=20;;
+    'pa21'|'PA21') iod=21;;
+    'pc0'|'PC0') iod=64;;
+    'pc1'|'PC1') iod=65;;
+    'pc2'|'PC2') iod=66;;
+    'pc3'|'PC3') iod=67;;
+    'pc4'|'PC4') iod=68;;
+    'pc7'|'PC7') iod=71;;
+    'pg6'|'PG6') iod=198;;
+    'pg7'|'PG7') iod=199;;
+    'pg8'|'PG8') iod=200;;
+    'pg9'|'PG9') iod=201;;
 esac
-if [ $iod -eq 0 ]; then
+if [ $iod -eq 9999 ]; then
     echo No Operation
     exit
 fi
